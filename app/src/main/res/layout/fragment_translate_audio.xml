@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/frame_page_bg_color"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -54,18 +54,39 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/audioBtn"
+            <LinearLayout
+                android:id="@+id/btnLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/dp_30"
-                android:backgroundTint="@color/frame_btn_color"
-                android:src="@drawable/ic_voice"
-                app:rippleColor="#0097a7" />
+                android:layout_marginTop="@dimen/dp_16">
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/audioBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/frame_btn_color"
+                    android:src="@drawable/ic_voice"
+                    app:rippleColor="#0097a7" />
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/saveBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_100"
+                    android:backgroundTint="@color/frame_btn_color"
+                    android:src="@drawable/ic_voice"
+                    app:rippleColor="#0097a7" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recordRv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/btnLayout"/>
         </RelativeLayout>
     </LinearLayout>
 

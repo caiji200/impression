@@ -96,11 +96,13 @@ class TranslateFragment : BaseFragment<TranslateViewModel>() {
 
         confirmBtn.setOnClickListener {
             val q = queryEt.text.toString()
-            hideSoftInput()
-            if (bZhToEn) {
-                mViewModel.translate(q, "zh", "en")
-            } else {
-                mViewModel.translate(q, "en", "zh")
+            if(!TextUtils.isEmpty(q)){
+                hideSoftInput()
+                if (bZhToEn) {
+                    mViewModel.translate(q, "zh", "en")
+                } else {
+                    mViewModel.translate(q, "en", "zh")
+                }
             }
         }
 
@@ -115,6 +117,16 @@ class TranslateFragment : BaseFragment<TranslateViewModel>() {
             val mClipData = ClipData.newPlainText("translate", resultTv.text.toString())
             cm.setPrimaryClip(mClipData)
             ToastUtils.showShort(R.string.already_copy)
+        }
+
+        addMarkIv.setOnClickListener {
+            val srcText = queryEt.text.toString().trim()
+            val destText = resultTv.text.toString().trim()
+            if (bZhToEn) {
+                mViewModel.addToNotebook("zh", "en",srcText,destText)
+            } else {
+                mViewModel.addToNotebook("en", "zh",srcText, destText)
+            }
         }
 
         switchIv.setOnClickListener {

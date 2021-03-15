@@ -8,11 +8,11 @@
 
     <item
         android:id="@+id/navigation_audio"
-        android:icon="@drawable/ic_baseline_person_24"
+        android:icon="@drawable/ic_baseline_contactless_24"
         android:title="@string/title_audio" />
 
     <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_baseline_person_24"
+        android:icon="@drawable/ic_baseline_assignment_24"
         android:title="@string/title_profile" />
 </menu>

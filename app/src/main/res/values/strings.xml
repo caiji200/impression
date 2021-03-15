@@ -5,10 +5,10 @@
     <string name="btn_confirm">Confirm</string>
     <string name="btn_try_now">Try Now</string>
     <string name="translate_hint">please input translate text</string>
-    <string name="already_copy">copy success</string>
+    <string name="already_copy">copy to clipboard</string>
     <string name="translate_zh">中文</string>
     <string name="translate_en">English</string>
-    <string name="translate_now">tranlate now...</string>
+    <string name="translate_now">translating</string>
 
     <string name="title_home">HOME</string>
     <string name="title_profile">MINE</string>
@@ -16,4 +16,7 @@
 
     <string name="recognize_tips">I\'m listening,Please talk</string>
     <string name="stop_recognize_tips">click to stop recognize</string>
+    <string name="loading">loading</string>
+
+    <string name="note_book">NoteBook</string>
 </resources>

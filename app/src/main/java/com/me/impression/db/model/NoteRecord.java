@@ -13,14 +13,12 @@ public class NoteRecord {
     @PrimaryKey(autoGenerate = true)
     public Long id;
 
-    public String word;
-
-    public String language;
-
-    public String meaning;
-
+    public int type;
+    public String from;
+    public String to;
+    public String srcText;
+    public String destText;
     public String extra;
 
     public Long createTime;
-
 }

@@ -2,35 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/transparent"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/main_layout"
-        android:layout_width="@dimen/dp_110"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_90"
         android:background="@drawable/dialog_loading_border"
         android:orientation="vertical">
 
-        <ProgressBar
-            android:layout_width="@dimen/dp_22"
-            android:layout_height="@dimen/dp_22"
-            android:layout_marginTop="@dimen/dp_28"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:indeterminateBehavior="repeat"/>
+            app:lottie_rawRes="@raw/loading"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"/>
 
-<!--        android:indeterminateDrawable="@drawable/custom_loading_drawable"-->
+<!--        <ProgressBar-->
+<!--            android:layout_width="@dimen/dp_22"-->
+<!--            android:layout_height="@dimen/dp_22"-->
+<!--            android:layout_marginTop="@dimen/dp_28"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:indeterminateBehavior="repeat"/>-->
 
-        <TextView
-            android:id="@+id/msgTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:paddingTop="@dimen/dp_12"
-            android:layout_marginLeft="@dimen/dp_12"
-            android:layout_marginRight="@dimen/dp_12"
-            android:paddingBottom="@dimen/dp_12"
-            android:textColor="#fff"
-            android:textSize="@dimen/sp_13"/>
+<!--        <TextView-->
+<!--            android:id="@+id/msgTv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:paddingTop="@dimen/dp_12"-->
+<!--            android:layout_marginLeft="@dimen/dp_12"-->
+<!--            android:layout_marginRight="@dimen/dp_12"-->
+<!--            android:paddingBottom="@dimen/dp_12"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="@dimen/sp_13"/>-->
+
+
     </LinearLayout>
 </LinearLayout>

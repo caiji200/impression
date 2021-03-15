@@ -5,10 +5,12 @@ import android.util.ArrayMap
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import com.blankj.utilcode.util.EncryptUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.me.impression.R
 import com.me.impression.base.BaseViewModel
 import com.me.impression.common.AppConfig
 import com.me.impression.db.model.HistoryRecord
+import com.me.impression.db.model.NoteRecord
 import com.me.impression.utils.L
 import com.me.impression.utils.RxTools
 import java.util.*
@@ -78,5 +80,23 @@ class TranslateViewModel(application: Application) :
         addDisposable(d)
     }
 
+    fun addToNotebook(from:String,to:String,srcText: String,destText: String)
+    {
+        val d = RxTools.observableOnIoMain {
+            val record = NoteRecord()
+            record.from = from
+            record.to = to
+            record.srcText = srcText
+            record.destText = destText
+            record.type = 0
+            record.createTime = System.currentTimeMillis()
+            mRepoManager.db.noteBookDao().insert(record)
+        }.subscribe {
+            if(it>=0){
+                ToastUtils.showShort("add result to notebook")
+            }
+        }
+        addDisposable(d)
+    }
 
 }

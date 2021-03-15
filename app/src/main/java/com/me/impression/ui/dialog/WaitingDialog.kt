@@ -15,7 +15,7 @@ class WaitingDialog(context: Context?, private val mMsg: String?) :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_waiting)
-        msgTv.text = mMsg
+//        msgTv.text = mMsg
         val linearLayout = findViewById<LinearLayout>(R.id.main_layout)
         linearLayout.background.alpha = 210
         setCanceledOnTouchOutside(false)
@@ -23,6 +23,6 @@ class WaitingDialog(context: Context?, private val mMsg: String?) :
 
     fun setMessage(msg:String?)
     {
-        msgTv.text = msg
+//        msgTv.text = msg
     }
 }
