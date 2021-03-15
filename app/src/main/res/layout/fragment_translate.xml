@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/frame_page_bg_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/frame_toolbar_height"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/leftLangTv"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_toLeftOf="@id/switchIv"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_28"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                android:text="@string/translate_zh"/>
+
+            <ImageView
+                android:id="@+id/switchIv"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_switch"/>
+
+            <TextView
+                android:id="@+id/rightLangTv"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/switchIv"
+                android:layout_marginLeft="@dimen/dp_28"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                android:text="@string/translate_en"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dp_10"
+            android:paddingLeft="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_16">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_140"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <EditText
+                    android:id="@+id/queryEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="@dimen/dp_90"
+                    android:maxHeight="@dimen/dp_140"
+                    android:gravity="start"
+                    android:textSize="@dimen/sp_16"
+                    android:textColor="@color/frame_custom_text_color"
+                    android:hint="@string/translate_hint"
+                    android:background="@null"/>
+
+                <ImageView
+                    android:id="@+id/clearIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_gravity="right"
+                    android:paddingRight="@dimen/dp_20"
+                    android:visibility="gone"
+                    android:src="@drawable/icon_close_black"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:paddingTop="@dimen/dp_4"
+                android:paddingBottom="@dimen/dp_4">
+
+                <ImageButton
+                    android:id="@+id/confirmBtn"
+                    android:layout_width="@dimen/dp_32"
+                    android:layout_height="@dimen/dp_32"
+                    android:layout_gravity="right"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/icon_go"/>
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/resultLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dp_180"
+            android:layout_margin="@dimen/dp_10"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dp_14"
+                    android:paddingRight="@dimen/dp_14"
+                    android:paddingTop="@dimen/dp_8"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="译文"/>
+
+                    <ImageButton
+                        android:id="@+id/copyIv"
+                        android:layout_width="@dimen/dp_32"
+                        android:layout_height="@dimen/dp_32"
+                        android:padding="@dimen/dp_4"
+                        android:layout_centerVertical="true"
+                        android:scaleType="fitXY"
+                        android:layout_toLeftOf="@id/addMarkIv"
+                        android:layout_marginRight="@dimen/dp_16"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/icon_copy"/>
+
+                    <ImageButton
+                        android:id="@+id/addMarkIv"
+                        android:layout_width="@dimen/dp_32"
+                        android:layout_height="@dimen/dp_32"
+                        android:padding="@dimen/dp_4"
+                        android:layout_centerVertical="true"
+                        android:scaleType="fitXY"
+                        android:layout_alignParentRight="true"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/icon_add_mark"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/resultTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:scrollbars="vertical"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:paddingLeft="@dimen/dp_16"
+                    android:paddingRight="@dimen/dp_16"
+                    android:textColor="@color/frame_custom_text_color"
+                    android:textSize="@dimen/sp_18"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/historyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_16">
+
+            <TextView
+                android:id="@+id/historyDescTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_16"
+                android:textSize="@dimen/sp_16"
+                android:text="History Record"
+                android:textColor="@color/black"/>
+
+            <RelativeLayout
+                android:id="@+id/moreLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp_10"
+                android:paddingLeft="@dimen/dp_10"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:id="@+id/moreTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp_15"
+                    android:text="more"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/gray_99"/>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_toRightOf="@id/moreTv"
+                    android:layout_alignTop="@id/moreTv"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_more"/>
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/historyRv"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_below="@id/historyDescTv"
+                android:layout_alignLeft="@id/historyDescTv"
+                android:layout_marginTop="@dimen/dp_8"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

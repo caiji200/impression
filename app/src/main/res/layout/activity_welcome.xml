@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_100"
+        app:banner_indicator_selected_color="@color/colorPrimary"
+        app:banner_indicator_normal_color="#6666CC99"
+        app:banner_indicator_space="@dimen/dp_20"
+        app:banner_loop_time="4000"
+        app:banner_auto_loop="true"/>
+
+    <TextView
+        android:id="@+id/goBtn"
+        android:layout_width="@dimen/dp_280"
+        android:text="@string/btn_try_now"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_80"
+        style="@style/frame_button_style"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="sans-serif"
+        android:textSize="@dimen/sp_20"
+        android:background="@drawable/primary_bt_hollow_corner_selector"/>
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="window_background_color">#FFFFFF</color>
+
+    <color name="colorPrimary">#66CC99</color>
+    <color name="colorPrimaryDark">#66CC99</color>
+    <color name="colorAccent">#66CC99</color>
+
+    <color name="frame_page_bg_color">#f5f5f5</color>
+    <color name="frame_btn_normal_color">@color/colorPrimary</color>
+    <color name="frame_btn_disable_color">#8066CC99</color>
+    <color name="frame_status_bar_color">#ffffff</color>
+    <color name="frame_toolbar_bg_color">#ffffff</color>
+    <color name="frame_toolbar_line_color">#f0f0f0</color>
+    <color name="frame_toolbar_text_color">#000000</color>
+    <color name="frame_btn_color">#0099CC</color>
+
+    <color name="frame_color_bt_unable">#9966CC99</color>
+    <color name="frame_color_bt_able">#66CC99</color>
+    <color name="frame_color_bt_press">#BB66CC99</color>
+
+    <color name="frame_custom_text_color">#333333</color>
+    <color name="frame_sub_text_color">#999999</color>
+    <color name="frame_tips_color">#A1A1A1</color>
+    <color name="frame_divider_color">#f2f2f2</color>
+    <color name="frame_dlg_divider_color">#d2d3d5</color>
+    <drawable name="frame_divider_color">#e5e5e5</drawable>
+    <color name="frame_error_text_color">#ff0000</color>
+
+    <drawable name="frame_list_selector_color">#e5e5e5</drawable>
+</resources>

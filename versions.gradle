@@ -1,0 +1,137 @@
+
+ext.deps = [:]
+
+def build_versions = [:]
+build_versions.min_sdk = 21
+build_versions.target_sdk = 29
+ext.build_versions = build_versions
+
+def app_plugins = [:]
+app_plugins.application = 'com.android.application'
+app_plugins.library = 'com.android.library'
+app_plugins.kt_android = 'kotlin-android'
+app_plugins.kt_android_ext = 'kotlin-android-extensions'
+app_plugins.kt_kapt = 'kotlin-kapt'
+ext.app_plugins = app_plugins
+
+def versions = [:]
+versions.kotlin = "1.3.50"
+versions.multidex = "2.0.0"
+versions.appcompat = "1.2.0"
+versions.legacy_v4 = "1.0.0"
+versions.legacy_v13 = "1.0.0"
+versions.recyclerview="1.0.0"
+versions.cardview = "1.0.0"
+versions.design = "1.0.0"
+versions.constraint_layout = "2.0.4"
+versions.glide = "4.8.0"
+versions.rxjava2 = "2.2.8"
+versions.rx_android = "2.1.1"
+versions.retrofit = "2.6.0"
+versions.photo_view = "2.0.0"
+versions.persistent_cookie = "v1.0.1"
+versions.gson = "2.8.2"
+versions.utils = "1.27.5"
+versions.top_snackbar = "1.1.1"
+versions.toasty = "1.1.3"
+versions.logger = "2.2.0"
+versions.material_dialog = "0.9.6.0"
+versions.lifecycle = "2.0.0"
+versions.lifecycle_viewmodel = "2.2.0-rc03"
+versions.slanted_text = '1.2'
+versions.kotlin_coroutine = '1.1.1'
+versions.junit = '4.12'
+versions.test_runner = '1.1.1'
+versions.espresso = '3.2.0'
+versions.rxpermission = '0.9.4@aar'
+versions.commons_codec = '1.9'
+versions.android_ktx = '1.2.0'
+versions.rxbus = '1.6'
+versions.room = '2.2.5'
+versions.lottie = '3.6.1'
+ext.versions = versions
+
+
+def support = [:]
+support.annotations = "com.android.support:support-annotations:${versions.support}"
+support.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
+support.v13 = "androidx.legacy:legacy-support-v13:$versions.legacy_v13"
+support.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+support.cardview = "androidx.cardview:cardview:$versions.cardview"
+support.design = "com.google.android.material:material:$versions.design"
+support.v4 = "androidx.legacy:legacy-support-v4:$versions.legacy_v4"
+support.core_utils = "com.android.support:support-core-utils:$versions.support"
+support.multidex = "androidx.multidex:multidex:$versions.multidex"
+deps.support = support
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+retrofit.convert_gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.convert_scalar = "com.squareup.retrofit2:converter-scalars:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+deps.retrofit = retrofit
+
+def room = [:]
+room.room_runtime  = "androidx.room:room-runtime:$versions.room"
+room.room_rxjava  = "androidx.room:room-rxjava2:$versions.room"
+room.room_compiler = "androidx.room:room-compiler:$versions.room"
+room.room_ktx = "androidx.room:room-ktx:$versions.room"
+deps.room = room
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+kotlin.kotlin_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutine"
+kotlin.kotlin_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlin_coroutine"
+deps.kotlin = kotlin
+
+deps.android_ktx = "androidx.core:core-ktx:$versions.android_ktx"
+deps.paging = "androidx.paging:paging-runtime:$versions.paging"
+deps.paging_rxjava = "androidx.paging:paging-rxjava2:$versions.paging_rxjava"
+deps.autodispose =  "com.uber.autodispose:autodispose-android-archcomponents:$versions.autodispose-RC3"
+deps.autodispose_android = "com.uber.autodispose:autodispose-android:$versions.autodispose-RC3"
+deps.lifecycle = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+deps.lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle_viewmodel"
+
+//view
+deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+deps.flow_layout = "com.hyman:flowlayout-lib:$versions.flow_layout"
+deps.photo_view = "com.github.chrisbanes:PhotoView:$versions.photo_view"
+deps.material_dialog = "com.afollestad.material-dialogs:core:$versions.material_dialog"
+
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+deps.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
+deps.rx_android = "io.reactivex.rxjava2:rxandroid:$versions.rx_android"
+
+//other
+deps.glide = "com.github.bumptech.glide:glide:$versions.glide"
+deps.glide_okhttp = "com.github.bumptech.glide:okhttp3-integration:$versions.glide"
+deps.glide_annotations = "com.github.bumptech.glide:annotations:$versions.glide"
+deps.glide_compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+
+deps.persistent_cookie = "com.github.franmontiel:PersistentCookieJar:$versions.persistent_cookie"
+deps.gson = "com.google.code.gson:gson:$versions.gson"
+deps.utils = "com.blankj:utilcodex:$versions.utils"
+deps.top_snackbar ="com.androidadvance:topsnackbar:$versions.top_snackbar"
+deps.toasty =  "com.github.GrenderG:Toasty:$versions.toasty"
+deps.logger = "com.orhanobut:logger:$versions.logger"
+
+deps.slanted_text = "com.haozhang.libary:android-slanted-textview:$versions.slanted_text"
+deps.rxpermission = "com.tbruyelle.rxpermissions2:rxpermissions:$versions.rxpermission"
+deps.commons_codec = "commons-codec:commons-codec:$versions.commons_codec"
+deps.rxbus = "com.blankj:rxbus:$versions.rxbus"
+deps.bga_qrcode_zxing = "cn.bingoogolapple:bga-qrcode-zxing:1.3.7"
+deps.bga_qrcode_zbar = "cn.bingoogolapple:bga-qrcode-zbar:1.3.7"
+deps.bga_photo_picker = "cn.bingoogolapple:bga-photopicker:1.2.8@aar"
+deps.luban = 'top.zibin:Luban:1.1.8'
+deps.lottie = "com.airbnb.android:lottie:$versions.lottie"
+
+def test = [:]
+test.junit = "junit:junit:$versions.junit"
+test.test_runner = "androidx.test.ext:junit:$versions.test_runner"
+test.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
+deps.test = test
+
+ext.deps = deps

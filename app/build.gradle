@@ -1,0 +1,110 @@
+apply plugin: app_plugins.application
+apply plugin: app_plugins.kt_android
+apply plugin: app_plugins.kt_android_ext
+apply plugin: app_plugins.kt_kapt
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion "30.0.2"
+    ndkVersion '21.3.6528147'
+
+    defaultConfig {
+        applicationId "com.me.impression"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+
+    implementation deps.support.app_compat
+    implementation deps.android_ktx
+    //kotlin
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.kotlin_android
+    implementation deps.kotlin.kotlin_core
+
+    implementation deps.support.v4
+    implementation deps.support.v13
+    implementation deps.support.design
+    implementation deps.support.cardview
+    implementation deps.support.recyclerview
+    implementation deps.constraint_layout
+    implementation deps.lifecycle
+
+    // other
+    implementation deps.gson
+    implementation deps.rxpermission
+    implementation deps.utils
+
+    //glide
+    implementation deps.glide
+    implementation deps.glide_okhttp
+    implementation deps.glide_annotations
+
+    implementation deps.bga_qrcode_zbar
+    implementation deps.bga_qrcode_zxing
+    implementation deps.bga_photo_picker
+
+    //view
+    implementation deps.photo_view
+    implementation deps.material_dialog
+    implementation deps.logger
+    implementation deps.toasty
+    implementation deps.lifecycle_viewmodel
+    implementation deps.commons_codec
+    implementation deps.rxbus
+
+    // RxJava and retrofit
+    implementation deps.rx_android
+    implementation deps.rxjava2
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.persistent_cookie
+    implementation deps.retrofit.convert_scalar
+    implementation deps.retrofit.convert_gson
+    implementation deps.retrofit.adapter
+
+    //room
+    implementation deps.room.room_runtime
+    implementation deps.room.room_rxjava
+    implementation deps.room.room_ktx
+
+    implementation deps.lottie
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.youth.banner:banner:2.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    kapt deps.room.room_compiler
+
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.test_runner
+    androidTestImplementation deps.test.espresso
+}
