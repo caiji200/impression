@@ -10,7 +10,7 @@ import com.me.impression.db.model.NoteRecord
 @Dao
 interface NoteRecordDao
 {
-    @Query("SELECT * FROM NoteRecord")
+    @Query("SELECT * FROM NoteRecord ORDER BY createTime DESC")
     fun getAll(): List<NoteRecord>
 
     @Query("SELECT * FROM NoteRecord where id IN (:id)")

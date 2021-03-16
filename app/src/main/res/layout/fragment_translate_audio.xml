@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_100"
                     android:backgroundTint="@color/frame_btn_color"
-                    android:src="@drawable/ic_voice"
+                    android:src="@drawable/ic_baseline_save_24"
                     app:rippleColor="#0097a7" />
 
             </LinearLayout>

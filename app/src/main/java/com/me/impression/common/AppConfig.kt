@@ -16,6 +16,8 @@ object AppConfig
     const val TRANSLATE_APPID = "20210311000723456"
     const val TRANSLATE_KEY = "pmwwTfKZv64Xe4FzIIey"
 
+    const val DEFAULT_TARGET_COUNT = 50
+
 //    APP ID：20210311000723456
 //    KEY：pmwwTfKZv64Xe4FzIIey
 }

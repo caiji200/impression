@@ -11,12 +11,21 @@
     <string name="translate_now">translating</string>
 
     <string name="title_home">HOME</string>
-    <string name="title_profile">MINE</string>
+    <string name="title_overview">OVERVIEW</string>
     <string name="title_audio">AUDIO</string>
+    <string name="title_analysis">Analysis</string>
+    <string name="title_review">Review</string>
 
     <string name="recognize_tips">I\'m listening,Please talk</string>
     <string name="stop_recognize_tips">click to stop recognize</string>
     <string name="loading">loading</string>
 
-    <string name="note_book">NoteBook</string>
+    <string name="note_book">notebook</string>
+
+    <string name="study_now">Study Now</string>
+
+    <string name="days_of_review">days of review</string>
+    <string name="review">review</string>
+    <string name="target">target</string>
+
 </resources>

@@ -30,7 +30,7 @@ class MainActivity() : BaseActivity<MainViewModel>() {
                 R.id.navigation_audio -> {
                     viewPager.currentItem = 1
                 }
-                R.id.navigation_profile -> {
+                R.id.navigation_overview -> {
                     viewPager.currentItem = 2
                 }
             }

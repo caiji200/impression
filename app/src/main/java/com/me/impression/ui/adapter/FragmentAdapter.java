@@ -1,6 +1,5 @@
 package com.me.impression.ui.adapter;
 
-import android.content.Context;
 import android.util.SparseArray;
 
 import androidx.annotation.NonNull;
@@ -8,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.me.impression.ui.fragment.NoteFragment;
+import com.me.impression.ui.fragment.OverViewFragment;
 import com.me.impression.ui.fragment.TranslateAudioFragment;
 import com.me.impression.ui.fragment.TranslateFragment;
 
@@ -21,7 +20,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         super(fm);
         mFragments.put(0, TranslateFragment.newInstance());
         mFragments.put(1, TranslateAudioFragment.newInstance());
-        mFragments.put(2, NoteFragment.newInstance());
+        mFragments.put(2, OverViewFragment.newInstance());
     }
 
     @NonNull

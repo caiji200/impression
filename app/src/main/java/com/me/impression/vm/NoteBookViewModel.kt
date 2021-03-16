@@ -5,12 +5,17 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import com.me.impression.base.BaseViewModel
 import com.me.impression.db.model.HistoryRecord
+import com.me.impression.db.model.NoteRecord
 import com.me.impression.utils.RxTools
 
-class TranslateHistoryViewModel(application: Application) :
+/**
+ * @author: Jie Cai
+ * @desc:
+ */
+class NoteBookViewModel(application: Application) :
     BaseViewModel(application)
 {
-    var mHistoryRecord: MutableLiveData<MutableList<HistoryRecord>> = MutableLiveData()
+    var mNotes: MutableLiveData<MutableList<NoteRecord>> = MutableLiveData()
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -20,13 +25,10 @@ class TranslateHistoryViewModel(application: Application) :
     private fun getHistoryData()
     {
         val d = RxTools.observableOnIoMain {
-            mRepoManager.db.historyTranslateDao().getAll()
+            mRepoManager.db.noteBookDao().getAll()
         }.subscribe {
-            mHistoryRecord.value = ArrayList(it)
+            mNotes.value = ArrayList(it)
         }
         addDisposable(d)
     }
-
-
-
 }

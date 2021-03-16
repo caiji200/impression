@@ -14,11 +14,22 @@ class NoteViewModel(application: Application) :
     BaseViewModel(application)
 {
     var mRecords:MutableLiveData<MutableList<NoteRecord>> = MutableLiveData()
+    var mNoteCount:MutableLiveData<Long> = MutableLiveData()
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
         mRecords.value = ArrayList()
+        initData()
+    }
 
+    private fun initData()
+    {
+        val d = RxTools.observableOnIoMain {
+            mRepoManager.db.noteBookDao().getCount()
+        }.subscribe {
+            mNoteCount.value = it
+        }
+        addDisposable(d)
     }
 
     fun addToRecord(from:String,to:String,srcText: String,destText: String)
