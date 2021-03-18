@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">Impression</string>
-
+    <string name="app_id">6052f7d9</string>
     <string name="btn_confirm">Confirm</string>
     <string name="btn_try_now">Try Now</string>
     <string name="translate_hint">please input translate text</string>
@@ -27,5 +27,6 @@
     <string name="days_of_review">days of review</string>
     <string name="review">review</string>
     <string name="target">target</string>
-
+    <string name="btn_next">Next</string>
+    <string name="btn_finish">Finish</string>
 </resources>

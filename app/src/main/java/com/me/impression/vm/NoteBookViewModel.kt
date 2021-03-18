@@ -19,10 +19,10 @@ class NoteBookViewModel(application: Application) :
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
-        getHistoryData()
+        getNoteData()
     }
 
-    private fun getHistoryData()
+    private fun getNoteData()
     {
         val d = RxTools.observableOnIoMain {
             mRepoManager.db.noteBookDao().getAll()

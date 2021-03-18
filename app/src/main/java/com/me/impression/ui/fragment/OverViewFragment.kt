@@ -46,6 +46,13 @@ class OverViewFragment : BaseFragment<NoteViewModel>() {
             startActivity(Intent(activity,ReviewActivity::class.java))
         }
 
+        mViewModel.mAnalysisRecord.observe(this, Observer {
+            it?.let {
+                reviewCountTv.text = it.count.toString()
+            }
+
+        })
+
         mViewModel.mNoteCount.observe(this, Observer {
             noteCountTv.text = it.toString()
         })

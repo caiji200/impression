@@ -2,17 +2,16 @@ package com.me.impression.vm
 
 import android.app.Application
 import android.util.ArrayMap
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import com.blankj.utilcode.util.EncryptUtils
-import com.blankj.utilcode.util.ToastUtils
 import com.me.impression.R
 import com.me.impression.base.BaseViewModel
 import com.me.impression.common.AppConfig
 import com.me.impression.db.model.HistoryRecord
 import com.me.impression.db.model.NoteRecord
+import com.me.impression.utils.EncryptUtils
 import com.me.impression.utils.L
 import com.me.impression.utils.RxTools
+import com.me.impression.utils.ToastUtils
 import java.util.*
 import kotlin.collections.ArrayList
 

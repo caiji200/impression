@@ -2,6 +2,7 @@ package com.me.impression.repository
 
 import com.me.impression.base.BaseApplication
 import com.me.impression.db.AppDatabase
+import com.me.impression.db.dao.AnalysisRecordDao
 import com.me.impression.db.dao.HistoryRecordDao
 import com.me.impression.db.dao.NoteRecordDao
 
@@ -21,5 +22,8 @@ object DatabaseRepository
         return AppDatabase.instance(BaseApplication.instance).historyRecordDao()
     }
 
-
+    fun analysisDao():AnalysisRecordDao
+    {
+        return AppDatabase.instance(BaseApplication.instance).analysisRecordDao()
+    }
 }

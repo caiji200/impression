@@ -3,11 +3,14 @@ package com.me.impression.vm
 import android.app.Application
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import com.blankj.utilcode.util.ToastUtils
 import com.me.impression.R
 import com.me.impression.base.BaseViewModel
+import com.me.impression.common.Constants
+import com.me.impression.db.model.AnalysisRecord
 import com.me.impression.db.model.NoteRecord
+import com.me.impression.utils.DateUtils
 import com.me.impression.utils.RxTools
+import com.me.impression.utils.ToastUtils
 import io.reactivex.Observable
 
 class NoteViewModel(application: Application) :
@@ -15,6 +18,7 @@ class NoteViewModel(application: Application) :
 {
     var mRecords:MutableLiveData<MutableList<NoteRecord>> = MutableLiveData()
     var mNoteCount:MutableLiveData<Long> = MutableLiveData()
+    var mAnalysisRecord:MutableLiveData<AnalysisRecord?> = MutableLiveData()
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
@@ -25,9 +29,14 @@ class NoteViewModel(application: Application) :
     private fun initData()
     {
         val d = RxTools.observableOnIoMain {
-            mRepoManager.db.noteBookDao().getCount()
+            val date = DateUtils.getAnalysisDate()
+            val analysisRecord = mRepoManager.db.analysisDao().getRecord(
+                Constants.AnalysisType.DAY_COUNT,date)
+            mAnalysisRecord.postValue(analysisRecord)
+            val count = mRepoManager.db.noteBookDao().getCount()
+            mNoteCount.postValue(count)
         }.subscribe {
-            mNoteCount.value = it
+
         }
         addDisposable(d)
     }

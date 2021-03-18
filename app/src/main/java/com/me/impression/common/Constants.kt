@@ -13,4 +13,10 @@ object Constants
         const val TargetCount = "target_count"
         const val ReviewDayCount = "review_day_count"
     }
+
+    object AnalysisType
+    {
+        const val DAY_COUNT = 1
+        const val DAY_DURATION = 2
+    }
 }
