@@ -1,15 +1,19 @@
 package com.me.impression.vm
 
 import android.app.Application
+import android.text.TextUtils
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
+import com.me.impression.base.BaseApplication
 import com.me.impression.base.BaseViewModel
 import com.me.impression.common.Constants
 import com.me.impression.db.model.AnalysisRecord
 import com.me.impression.db.model.NoteRecord
 import com.me.impression.utils.DateUtils
+import com.me.impression.utils.PreferencesUtils
 import com.me.impression.utils.RxTools
+import org.json.JSONObject
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -29,6 +33,7 @@ class ReviewViewModel(application: Application) :
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
         getNoteData()
+        setReviewDayCount()
     }
 
     private fun getNoteData()
@@ -36,25 +41,49 @@ class ReviewViewModel(application: Application) :
         val d = RxTools.observableOnIoMain {
 
             val date = DateUtils.getAnalysisDate()
-            mAnalysisRecord = mRepoManager.db.analysisDao().getRecord(
-                Constants.AnalysisType.DAY_COUNT,date)
-            if(mAnalysisRecord == null){
+            mAnalysisRecord = mRepoManager.db.analysisDao()
+                    .getRecord(Constants.AnalysisType.DAY_COUNT,date)
+            if (mAnalysisRecord == null) {
                 mAnalysisRecord = AnalysisRecord(0,Constants.AnalysisType.DAY_COUNT,
                         0,0,date,System.currentTimeMillis())
                 val id = mRepoManager.db.analysisDao().insert(mAnalysisRecord!!)
                 mAnalysisRecord!!.id = id
             }
-
             mRepoManager.db.noteBookDao().getAll()
         }.subscribe {
             mNotes.clear()
             mNotes.addAll(it)
-            if(mNotes.isNotEmpty()){
+            if (mNotes.isNotEmpty()) {
                 mCurIndex = 0
                 mCurNote.value = mNotes[0]
             }
         }
         addDisposable(d)
+    }
+
+    private fun setReviewDayCount()
+    {
+        val str = PreferencesUtils.getString(BaseApplication.getAppContext(),
+                Constants.PrefKey.ReviewDayCount,"")
+        if(TextUtils.isEmpty(str)){
+            val json = JSONObject()
+            json.put("time",DateUtils.getAnalysisDate())
+            json.put("count",1)
+            PreferencesUtils.putString(BaseApplication.getAppContext(),
+                    Constants.PrefKey.ReviewDayCount,json.toString())
+        }else{
+            val json = JSONObject(str)
+            val time = json.optLong("time")
+            val count = json.optInt("count")
+            val curDate = DateUtils.getAnalysisDate()
+            if (curDate > time) {
+                val json = JSONObject(str)
+                json.put("time",curDate)
+                json.put("count",count+1)
+                PreferencesUtils.putString(BaseApplication.getAppContext(),
+                        Constants.PrefKey.ReviewDayCount,json.toString())
+            }
+        }
     }
 
     fun showNext():Boolean

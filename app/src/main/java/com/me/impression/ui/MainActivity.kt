@@ -6,7 +6,7 @@ import com.me.impression.ui.adapter.FragmentAdapter
 import com.me.impression.vm.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity() : BaseActivity<MainViewModel>() {
+class MainActivity : BaseActivity<MainViewModel>() {
 
     private lateinit var mAdapter: FragmentAdapter
 

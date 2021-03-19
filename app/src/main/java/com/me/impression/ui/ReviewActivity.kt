@@ -8,9 +8,13 @@ import com.iflytek.cloud.SpeechError
 import com.iflytek.cloud.SynthesizerListener
 import com.me.impression.R
 import com.me.impression.base.BaseActivity
+import com.me.impression.common.AppConfig
+import com.me.impression.common.Constants
 import com.me.impression.extensions.gone
+import com.me.impression.extensions.invisible
 import com.me.impression.extensions.visible
 import com.me.impression.utils.L
+import com.me.impression.utils.PreferencesUtils
 import com.me.impression.utils.TtsHelper
 import com.me.impression.vm.ReviewViewModel
 import kotlinx.android.synthetic.main.activity_review.*
@@ -47,17 +51,13 @@ class ReviewActivity : BaseActivity<ReviewViewModel>() {
             maskTv.gone()
         }
 
-        lottieView.setOnClickListener {
-            if (!lottieView.isAnimating) {
-                lottieView.playAnimation()
-            }
+        audioBtn.setOnClickListener {
+            lottieView.visible()
+            audioBtn.invisible()
             startSpeak()
         }
 
-        lottieView.postDelayed({
-            lottieView.pauseAnimation()
-        },400)
-
+        lottieView.invisible()
     }
 
     private fun startSpeak()
@@ -91,7 +91,8 @@ class ReviewActivity : BaseActivity<ReviewViewModel>() {
 
             override fun onCompleted(p0: SpeechError?) {
                 L.d("tts","onCompleted")
-                lottieView.pauseAnimation()
+                lottieView.invisible()
+                audioBtn.visible()
             }
         })
     }

@@ -24,12 +24,10 @@ class OverViewFragment : BaseFragment<NoteViewModel>() {
 
     override fun initView() {
         titleTv.text = getString(R.string.title_overview)
+
         val targetCount = PreferencesUtils.getInt(activity,Constants.PrefKey.TargetCount,
             AppConfig.DEFAULT_TARGET_COUNT)
         targetCountTv.text = targetCount.toString()
-
-        val reviewDaysCount = PreferencesUtils.getInt(activity,Constants.PrefKey.ReviewDayCount,0)
-        reviewDayCountTv.text = reviewDaysCount.toString()
     }
 
     override fun setListener() {
@@ -50,11 +48,15 @@ class OverViewFragment : BaseFragment<NoteViewModel>() {
             it?.let {
                 reviewCountTv.text = it.count.toString()
             }
+        })
 
+        mViewModel.mReviewDayCount.observe(this, Observer {
+            reviewDayCountTv.text = it.toString()
         })
 
         mViewModel.mNoteCount.observe(this, Observer {
             noteCountTv.text = it.toString()
         })
+
     }
 }

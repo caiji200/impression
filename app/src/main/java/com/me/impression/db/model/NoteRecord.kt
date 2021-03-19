@@ -19,4 +19,17 @@ data class NoteRecord (
     var destText: String="",
     var extra: String="",
     var createTime: Long=0
-)
+) {
+    override fun equals(other: Any?): Boolean {
+        if(other != null){
+            if(this === other){
+                return true
+            }
+
+            if (other is NoteRecord){
+                return this.id == other.id
+            }
+        }
+        return false
+    }
+}

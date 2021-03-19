@@ -49,4 +49,6 @@
     <color name="gray_e0">#ffe0e0e0</color>
     <color name="gray_eb">#ffebebeb</color>
 
+    <color name="chart_color">#40E0D0</color>
+
 </resources>

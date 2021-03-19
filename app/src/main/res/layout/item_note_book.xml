@@ -1,30 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="@dimen/dp_8"
-    android:paddingBottom="@dimen/dp_8"
-    android:paddingLeft="@dimen/dp_16"
-    android:paddingRight="@dimen/dp_16"
-    android:background="@drawable/frame_custom_layout_selector"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/srcTv"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_8"
+        android:paddingLeft="@dimen/dp_16"
+        android:paddingRight="@dimen/dp_16"
+        android:background="@drawable/frame_custom_layout_selector"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/srcTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_35"
+            android:text="test"
+            android:textSize="@dimen/sp_14"/>
+
+        <TextView
+            android:id="@+id/destTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_8c"
+            android:layout_marginTop="@dimen/dp_4"
+            android:text="test"
+            android:textSize="@dimen/sp_14"/>
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkCb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/gray_35"
-        android:text="test"
-        android:textSize="@dimen/sp_14"/>
-
-    <TextView
-        android:id="@+id/destTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/gray_8c"
-        android:layout_marginTop="@dimen/dp_4"
-        android:text="test"
-        android:textSize="@dimen/sp_14"/>
-
-</LinearLayout>
+        android:button="@drawable/frame_custom_checkbox_selector"
+        android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text=""
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+</RelativeLayout>

@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/dp_100"
         android:gravity="center"
-        android:textSize="@dimen/sp_20"
+        android:textSize="@dimen/sp_16"
         android:textColor="@color/black"
         android:layout_marginLeft="@dimen/dp_16"
         android:layout_marginRight="@dimen/dp_16"/>
@@ -23,47 +23,36 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_16"
         android:layout_marginRight="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginBottom="@dimen/dp_24"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/srcTextTv">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieView"
-            android:layout_width="@dimen/dp_24"
-            android:layout_height="@dimen/dp_24"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:lottie_rawRes="@raw/audio"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true"/>
-
         <TextView
             android:id="@+id/destTextTv"
-            android:layout_width="@dimen/dp_250"
+            android:layout_width="@dimen/dp_300"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp_10"
             android:gravity="center"
-            android:textSize="@dimen/sp_17"
+            android:textSize="@dimen/sp_16"
             android:textColor="@color/colorPrimary"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/lottieView"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:text="text"/>
 
         <TextView
             android:id="@+id/maskTv"
-            android:layout_width="@dimen/dp_250"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/dp_300"
+            android:layout_height="wrap_content"
+            android:maxHeight="@dimen/dp_300"
             android:paddingTop="@dimen/dp_10"
             android:paddingBottom="@dimen/dp_10"
-            android:background="@color/colorPrimary"
+            android:background="@color/frame_btn_color"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/lottieView"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/destTextTv"/>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -74,8 +63,36 @@
         android:layout_gravity="center_horizontal"
         android:fontFamily="sans-serif-medium"
         android:text="@string/btn_next"
-        android:layout_marginBottom="@dimen/dp_180"
+        android:layout_marginBottom="@dimen/dp_80"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <RelativeLayout
+        android:id="@+id/audioLayout"
+        android:layout_width="@dimen/dp_280"
+        android:layout_height="@dimen/frame_btn_height"
+        android:layout_marginBottom="@dimen/dp_24"
+        app:layout_constraintBottom_toTopOf="@id/nextBtn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <TextView
+            android:id="@+id/audioBtn"
+            android:layout_width="@dimen/dp_280"
+            style="@style/frame_button_style"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/btn_follow_read"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieView"
+            android:layout_width="@dimen/dp_280"
+            android:layout_height="@dimen/frame_btn_height"
+            android:layout_centerHorizontal="true"
+            app:lottie_rawRes="@raw/voice"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"/>
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

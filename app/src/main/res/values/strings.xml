@@ -3,6 +3,7 @@
     <string name="app_name">Impression</string>
     <string name="app_id">6052f7d9</string>
     <string name="btn_confirm">Confirm</string>
+    <string name="btn_cancel">Cancel</string>
     <string name="btn_try_now">Try Now</string>
     <string name="translate_hint">please input translate text</string>
     <string name="already_copy">copy to clipboard</string>
@@ -28,5 +29,14 @@
     <string name="review">review</string>
     <string name="target">target</string>
     <string name="btn_next">Next</string>
+    <string name="btn_follow_read">Follow Read</string>
+    <string name="btn_delete">Delete</string>
     <string name="btn_finish">Finish</string>
+    <string name="wait_now">wait now...</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="prompt">Prompt</string>
+    <string name="please_choose_items">please choose one item at least</string>
+    <string name="delete_note_tips">Do you confirm to delete these items?</string>
 </resources>

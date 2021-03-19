@@ -88,6 +88,7 @@ dependencies {
     implementation deps.rxpermission
     implementation deps.lottie
     implementation deps.banner
+    implementation deps.chart
 
     kapt deps.room.room_compiler
 

@@ -13,7 +13,7 @@
     <color name="frame_toolbar_bg_color">#ffffff</color>
     <color name="frame_toolbar_line_color">#f0f0f0</color>
     <color name="frame_toolbar_text_color">#000000</color>
-    <color name="frame_btn_color">#0099CC</color>
+    <color name="frame_btn_color">#40E0D0</color>
 
     <color name="frame_color_bt_unable">#9966CC99</color>
     <color name="frame_color_bt_able">#66CC99</color>

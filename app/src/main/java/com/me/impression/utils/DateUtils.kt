@@ -1,5 +1,6 @@
 package com.me.impression.utils
 
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -18,5 +19,13 @@ object DateUtils {
         cal.set(Calendar.SECOND,59)
         cal.set(Calendar.MILLISECOND,0)
         return cal.timeInMillis
+    }
+
+    fun format(dateTime:Long,pattern:String):String
+    {
+        val cal = Calendar.getInstance()
+        cal.timeInMillis = dateTime
+        val df = SimpleDateFormat(pattern)
+        return df.format(cal.time)
     }
 }
