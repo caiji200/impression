@@ -51,7 +51,6 @@ Some features that may be supported in the future:
 <p float="left">
 <img src="https://github.com/caiji200/impression/blob/master/screenshot/7.jpg" width="200" height="320" alt=""/>
 <img src="https://github.com/caiji200/impression/blob/master/screenshot/8.jpg" width="200" height="320" alt=""/>
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/9.jpg" width="200" height="320" alt=""/>
 <p>
 
 ## Installation
@@ -122,13 +121,13 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 build this app need minSdkVersion=21 and targetSdkVersion=29,If your Android studio has not downloaded 
 this version of the SDK,please click the SDK Manager and download 
 
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_1.jpg" width="320" height="200" alt=""/>
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_2.jpg" width="320" height="200" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_1.jpg" width="640" height="320" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_2.jpg" width="640" height="320" alt=""/>
 
 If you want to use the local gradle and build tools, please change them to your own version.
 
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_3.jpg" width="320" height="200" alt=""/>
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_4.jpg" width="320" height="200" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_3.jpg" width="640" height="320" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_4.jpg" width="640" height="320" alt=""/>
 
 
 ## Contact 
