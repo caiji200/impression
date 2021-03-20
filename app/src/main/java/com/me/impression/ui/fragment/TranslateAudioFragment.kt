@@ -8,16 +8,18 @@ import com.me.impression.R
 import com.me.impression.base.BaseFragment
 import com.me.impression.base.BaseNormalAdapter
 import com.me.impression.base.ViewHolder
+import com.me.impression.db.model.HistoryRecord
 import com.me.impression.db.model.NoteRecord
 import com.me.impression.ui.AudioRecognizeActivity
 import com.me.impression.vm.NoteViewModel
+import com.me.impression.vm.TranslateAudioViewModel
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.fragment_translate_audio.*
 import kotlinx.android.synthetic.main.fragment_translate_audio.leftLangTv
 import kotlinx.android.synthetic.main.fragment_translate_audio.rightLangTv
 import kotlinx.android.synthetic.main.fragment_translate_audio.switchIv
 
-class TranslateAudioFragment : BaseFragment<NoteViewModel>() {
+class TranslateAudioFragment : BaseFragment<TranslateAudioViewModel>() {
 
     private var bZhToEn = true
 
@@ -27,13 +29,13 @@ class TranslateAudioFragment : BaseFragment<NoteViewModel>() {
 
         const val REQ_RECOGNIZE = 100
     }
-    private lateinit var mAdapter:BaseNormalAdapter<NoteRecord>
+    private lateinit var mAdapter:BaseNormalAdapter<HistoryRecord>
 
     override fun getLayoutId(): Int = R.layout.fragment_translate_audio
 
     override fun initView() {
-        mAdapter = object:BaseNormalAdapter<NoteRecord>(R.layout.item_translate_record){
-            override fun bindViewHolder(holder: ViewHolder, item: NoteRecord, position: Int) {
+        mAdapter = object:BaseNormalAdapter<HistoryRecord>(R.layout.item_translate_record){
+            override fun bindViewHolder(holder: ViewHolder, item: HistoryRecord, position: Int) {
                 holder.setText(R.id.srcTv,item.srcText)
                 holder.setText(R.id.destTv,item.destText)
             }
@@ -43,8 +45,6 @@ class TranslateAudioFragment : BaseFragment<NoteViewModel>() {
             layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
             adapter = mAdapter
         }
-
-
     }
 
     override fun setListener() {
@@ -71,29 +71,9 @@ class TranslateAudioFragment : BaseFragment<NoteViewModel>() {
             bZhToEn = !bZhToEn
         }
 
-        saveBtn.setOnClickListener {
-            mViewModel.saveToNoteBook()
-        }
-
-        mViewModel.mRecords.observe(this, Observer {
+        mViewModel.mHistoryRecord.observe(this, Observer {
             mAdapter.setData(it)
         })
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == REQ_RECOGNIZE && resultCode == Activity.RESULT_OK){
-            data?.let {
-                val src = data.getStringExtra("src")
-                val dest = data.getStringExtra("dest")
-                var from = "zh"
-                var to = "en"
-                if(!bZhToEn){
-                    from = "en"
-                    to = "zh"
-                }
-                mViewModel.addToRecord(from,to,src,dest)
-            }
-        }
-    }
 }

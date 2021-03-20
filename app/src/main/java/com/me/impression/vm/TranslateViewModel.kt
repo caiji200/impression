@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.me.impression.R
 import com.me.impression.base.BaseViewModel
 import com.me.impression.common.AppConfig
+import com.me.impression.common.Constants
 import com.me.impression.db.model.HistoryRecord
 import com.me.impression.db.model.NoteRecord
 import com.me.impression.utils.EncryptUtils
@@ -61,6 +62,7 @@ class TranslateViewModel(application: Application) :
                                 srcText:String,destText:String)
     {
         val item = HistoryRecord()
+        item.type = Constants.HistoryRecordType.QUERY
         item.from = from
         item.to = to
         item.srcText = srcText

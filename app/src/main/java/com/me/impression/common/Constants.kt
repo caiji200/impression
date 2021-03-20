@@ -19,4 +19,10 @@ object Constants
         const val DAY_COUNT = 1
         const val DAY_DURATION = 2
     }
+
+    object HistoryRecordType
+    {
+        const val QUERY = 1
+        const val AUDIO = 2
+    }
 }

@@ -15,6 +15,9 @@ interface AnalysisRecordDao
     @Query("SELECT * FROM AnalysisRecord ORDER BY date")
     fun getAll(): List<AnalysisRecord>
 
+    @Query("SELECT * FROM AnalysisRecord ORDER BY date LIMIT 7")
+    fun getRecent(): List<AnalysisRecord>
+
     @Query("SELECT * FROM AnalysisRecord WHERE type = :type ORDER BY date")
     fun getAll(type:Int): List<AnalysisRecord>
 

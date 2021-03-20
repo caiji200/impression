@@ -1,6 +1,7 @@
 package com.me.impression.ui
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import com.baidu.translate.asr.OnRecognizeListener
 import com.baidu.translate.asr.TransAsrClient
@@ -17,11 +18,14 @@ class AudioRecognizeActivity : BaseActivity<AudioRecognizeViewModel>() {
 
     private var mClient: TransAsrClient? = null
     private var bZhToEn = true
+    private var canRecognize = false
+
     private val TAG = "tag"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         hideSystemNavigationBar()
         super.onCreate(savedInstanceState)
+        tempResultTv.movementMethod = ScrollingMovementMethod.getInstance()
     }
 
     override fun getLayoutId(): Int  = R.layout.activity_audio_recognize
@@ -38,13 +42,14 @@ class AudioRecognizeActivity : BaseActivity<AudioRecognizeViewModel>() {
         mClient?.setRecognizeListener(OnRecognizeListener { resultType, result ->
             if (resultType == OnRecognizeListener.TYPE_PARTIAL_RESULT) {
                 Log.d(TAG, "result ：" + result.asrResult)
-                setRecognizeView(result.asrResult,result.transResult)
+                setRecognizeResult(result.asrResult,result.transResult,false)
             } else if (resultType == OnRecognizeListener.TYPE_FINAL_RESULT) {
                 if (result.error == 0) {
                     Log.d(TAG, "final：" + result.asrResult)
                     Log.d(TAG, "translate result：" + result.transResult)
-                    setRecognizeView(result.asrResult,result.transResult)
-                    tipsTv.postDelayed({closePage() },1000)
+                    setRecognizeResult(result.asrResult,result.transResult,true)
+                    stopRecognize()
+                    canRecognize = true
                 } else {
                     Log.d(TAG, "translate error code：" + result.error + " errorMsg：" + result.errorMsg)
                 }
@@ -52,27 +57,54 @@ class AudioRecognizeActivity : BaseActivity<AudioRecognizeViewModel>() {
         })
         tipsTv.postDelayed({
             L.d(TAG,"=========start =====")
-            if (bZhToEn) {
-                mClient?.startRecognize("zh", "en")
-            } else {
-                mClient?.startRecognize("en", "zh")
-            }
+            startRecognize()
         },1000)
     }
 
-    override fun setListener() {
+    private fun startRecognize()
+    {
+        if (bZhToEn) {
+            mClient?.startRecognize("zh", "en")
+        } else {
+            mClient?.startRecognize("en", "zh")
+        }
+        canRecognize = false
+        lottieView.resumeAnimation()
+        recognizeTipsTv.text = getString(R.string.stop_recognize_tips)
+    }
 
+    private fun stopRecognize()
+    {
+        mClient?.stopRecognize()
+        recognizeTipsTv.text = getString(R.string.start_recognize_tips)
+        lottieView.pauseAnimation()
+    }
+
+    override fun setListener() {
         recognitionView.setOnClickListener {
             L.d(TAG,"=========stop #=====")
-            mClient?.stopRecognize()
+            if(canRecognize){
+                startRecognize()
+            }else{
+                stopRecognize()
+            }
         }
     }
 
-    private fun setRecognizeView(src:String,dest:String?)
+    private fun setRecognizeResult(src:String,dest:String?,bFinal:Boolean)
     {
         tipsTv.gone()
         srcTv.text = src
         destTv.text = dest
+        if(bFinal){
+            val temp = tempResultTv.text.toString() + src +"\n"+dest+"\n\n"
+            tempResultTv.text = temp
+            if (bZhToEn) {
+                mViewModel.saveHistoryToDb("zh", "en",src,dest)
+            } else {
+                mViewModel.saveHistoryToDb("en", "zh",src,dest)
+            }
+        }
     }
 
 

@@ -14,7 +14,10 @@ interface HistoryRecordDao
     @Query("SELECT * FROM HistoryRecord ORDER BY createTime DESC ")
     fun getAll(): List<HistoryRecord>
 
-    @Query("SELECT * FROM HistoryRecord ORDER BY createTime DESC limit 3")
+    @Query("SELECT * FROM HistoryRecord WHERE type = :type ORDER BY createTime DESC ")
+    fun getAllByType(type:Int): List<HistoryRecord>
+
+    @Query("SELECT * FROM HistoryRecord WHERE type = 1 ORDER BY createTime DESC limit 3")
     fun getRecent(): List<HistoryRecord>
 
     @Query("SELECT * FROM HistoryRecord where id IN (:id)")

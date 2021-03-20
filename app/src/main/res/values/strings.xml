@@ -19,6 +19,7 @@
 
     <string name="recognize_tips">I\'m listening,Please talk</string>
     <string name="stop_recognize_tips">click to stop recognize</string>
+    <string name="start_recognize_tips">click to start recognize</string>
     <string name="loading">loading</string>
 
     <string name="note_book">notebook</string>
@@ -39,4 +40,6 @@
     <string name="prompt">Prompt</string>
     <string name="please_choose_items">please choose one item at least</string>
     <string name="delete_note_tips">Do you confirm to delete these items?</string>
+
+
 </resources>

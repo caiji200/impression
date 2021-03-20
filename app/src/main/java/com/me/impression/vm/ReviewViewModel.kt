@@ -27,13 +27,33 @@ class ReviewViewModel(application: Application) :
     var mCurNote: MutableLiveData<NoteRecord> = MutableLiveData()
     private var mCurIndex = 0
     private var mNotes:ArrayList<NoteRecord> = ArrayList()
-
     private var mAnalysisRecord:AnalysisRecord? = null
+    private var mStartTime = 0L
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
         getNoteData()
         setReviewDayCount()
+        mStartTime = System.currentTimeMillis()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mStartTime = System.currentTimeMillis()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val duration = (System.currentTimeMillis() - mStartTime) / 1000
+        mAnalysisRecord?.let {
+            if(duration >0){
+                it.duration += duration
+                val d = RxTools.observableOnIoMain {
+                    mRepoManager.db.analysisDao().update(it)
+                }.subscribe()
+                addDisposable(d)
+            }
+        }
     }
 
     private fun getNoteData()
@@ -118,4 +138,5 @@ class ReviewViewModel(application: Application) :
     {
         return mCurIndex >= mNotes.size-1
     }
+
 }

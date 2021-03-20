@@ -11,6 +11,7 @@ import androidx.room.PrimaryKey
 data class HistoryRecord (
     @PrimaryKey(autoGenerate = true)
     var id: Long=0,
+    var type:Int=0,
     var from: String="",
     var to: String="",
     var srcText: String="",

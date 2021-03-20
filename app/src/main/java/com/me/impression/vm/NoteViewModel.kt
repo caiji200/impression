@@ -51,6 +51,8 @@ class NoteViewModel(application: Application) :
                 val json = JSONObject(str)
                 val count = json.optInt("count")
                 mReviewDayCount.postValue(count)
+            }else{
+                mReviewDayCount.postValue(0)
             }
         }.subscribe {
 
