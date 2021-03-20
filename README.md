@@ -36,8 +36,9 @@ Some features that may be supported in the future:
 * photo translation
 
 ## Screenshot 
-![](https://github.com/caiji200/impression/blob/master/screenshot/1.jpg)
-![](https://github.com/caiji200/impression/blob/master/screenshot/2.jpg)
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/1.jpg" width="200" height="320" alt=""/>
+
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/2.jpg" width="200" height="320" alt=""/><br/>
 ![](https://github.com/caiji200/impression/screenshot/3.jpg)
 ![](https://github.com/caiji200/impression/screenshot/4.jpg)
 ![](https://github.com/caiji200/impression/screenshot/5.jpg)
