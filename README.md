@@ -6,9 +6,9 @@
 - [Features](#features)
 - [Screenshot](#Screenshot)
 - [Installation](#Installation)
-- [How to Use](#How to use)
+- [Use](#Use)
 - [Usage](#Usage)
-- [Troubleshooting Tips](#Troubleshooting Tips)
+- [Troubleshooting](#Troubleshooting)
 - [Contact](#Contact)
 
 ## Introduction
@@ -70,7 +70,7 @@ you will see the connected device in Android studio.
 - Run App ,If successful, you will see the first page of the launch.
 
 
-### How to use
+### Use
 When you install successfully, the first thing you will see is the welcome page.Click try Now to 
 experience the function of App.App provides basic translation functions,Its home page consists of 
 three parts: text translation, voice translation and overview page.
@@ -109,7 +109,7 @@ If you find a bug (the website couldn't handle the query and / or gave undesired
 
 If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/caiji200/impression/issues/new). Please include sample queries and their corresponding results.
 
-## Troubleshooting Tips
+## Troubleshooting
 build this app need minSdkVersion=21 and targetSdkVersion=29,If your Android studio has not downloaded 
 this version of the SDK,please click the SDK Manager and download 
 ![](https://github.com/caiji200/impression/screenshot/t_1.jpg)
