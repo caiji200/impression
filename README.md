@@ -126,8 +126,8 @@ this version of the SDK,please click the SDK Manager and download
 
 If you want to use the local gradle and build tools, please change them to your own version.
 
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_3.jpg" width="1357" height="395" alt=""/>
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_4.jpg" width="1357" height="395" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_3.jpg" width="705" height="190" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_4.jpg" width="678" height="198" alt=""/>
 
 
 ## Contact 
