@@ -96,7 +96,7 @@ class AudioRecognizeActivity : BaseActivity<AudioRecognizeViewModel>() {
         tipsTv.gone()
         srcTv.text = src
         destTv.text = dest
-        if(bFinal){
+        if (bFinal) {
             val temp = tempResultTv.text.toString() + src +"\n"+dest+"\n\n"
             tempResultTv.text = temp
             if (bZhToEn) {
