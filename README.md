@@ -121,13 +121,13 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 build this app need minSdkVersion=21 and targetSdkVersion=29,If your Android studio has not downloaded 
 this version of the SDK,please click the SDK Manager and download 
 
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_1.jpg" width="640" height="320" alt=""/>
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_2.jpg" width="640" height="320" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_1.jpg" width="959" height="215" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_2.jpg" width="743" height="510" alt=""/>
 
 If you want to use the local gradle and build tools, please change them to your own version.
 
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_3.jpg" width="640" height="320" alt=""/>
-<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_4.jpg" width="640" height="320" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_3.jpg" width="1357" height="395" alt=""/>
+<img src="https://github.com/caiji200/impression/blob/master/screenshot/t_4.jpg" width="1357" height="395" alt=""/>
 
 
 ## Contact 
