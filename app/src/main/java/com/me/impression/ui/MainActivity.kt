@@ -1,8 +1,11 @@
 package com.me.impression.ui
 
+import android.content.Intent
 import com.me.impression.R
 import com.me.impression.base.BaseActivity
+import com.me.impression.common.Constants
 import com.me.impression.ui.adapter.FragmentAdapter
+import com.me.impression.utils.PreferencesUtils
 import com.me.impression.vm.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 

@@ -30,12 +30,8 @@ class NoteViewModel(application: Application) :
         mRecords.value = ArrayList()
     }
 
-    override fun onResume() {
-        super.onResume()
-        initData()
-    }
 
-    private fun initData()
+    fun initData()
     {
         val d = RxTools.observableOnIoMain {
             val date = DateUtils.getAnalysisDate()

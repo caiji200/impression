@@ -13,6 +13,7 @@ import com.me.impression.R
 import com.me.impression.base.BaseFragment
 import com.me.impression.base.BaseNormalAdapter
 import com.me.impression.base.ViewHolder
+import com.me.impression.common.Constants
 import com.me.impression.db.model.HistoryRecord
 import com.me.impression.extensions.gone
 import com.me.impression.extensions.hideSoftInput
@@ -20,6 +21,7 @@ import com.me.impression.extensions.setVisible
 import com.me.impression.extensions.visible
 import com.me.impression.interfaces.TextWatcherAdapter
 import com.me.impression.ui.TranslateHistoryActivity
+import com.me.impression.utils.PreferencesUtils
 import com.me.impression.utils.ToastUtils
 import com.me.impression.vm.TranslateViewModel
 import kotlinx.android.synthetic.main.fragment_translate.*
@@ -41,6 +43,14 @@ class TranslateFragment : BaseFragment<TranslateViewModel>() {
         resultLayout.gone()
         confirmBtn.gone()
         clearIv.gone()
+        bZhToEn = PreferencesUtils.getBoolean(activity,Constants.PrefKey.TranslateDirection,true)
+        if(bZhToEn){
+            leftLangTv.text = getString(R.string.translate_zh)
+            rightLangTv.text = getString(R.string.translate_en)
+        }else{
+            leftLangTv.text = getString(R.string.translate_en)
+            rightLangTv.text = getString(R.string.translate_zh)
+        }
 
         historyRv.apply {
             layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
@@ -133,6 +143,7 @@ class TranslateFragment : BaseFragment<TranslateViewModel>() {
                 rightLangTv.text = getString(R.string.translate_en)
             }
             bZhToEn = !bZhToEn
+            PreferencesUtils.putBoolean(activity,Constants.PrefKey.TranslateDirection,bZhToEn)
         }
 
         mHistoryAdapter.itemClickListener = { _,record,_ ->

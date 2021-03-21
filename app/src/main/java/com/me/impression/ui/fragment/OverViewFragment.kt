@@ -30,6 +30,13 @@ class OverViewFragment : BaseFragment<NoteViewModel>() {
         targetCountTv.text = targetCount.toString()
     }
 
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if(isVisibleToUser){
+            mViewModel.initData()
+        }
+    }
+
     override fun setListener() {
 
         notebookLayout.setOnClickListener {

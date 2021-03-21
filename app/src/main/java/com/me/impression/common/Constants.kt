@@ -12,6 +12,8 @@ object Constants
     {
         const val TargetCount = "target_count"
         const val ReviewDayCount = "review_day_count"
+        const val TranslateDirection = "translate_direction"
+        const val FirstLaunch = "first_launch"
     }
 
     object AnalysisType

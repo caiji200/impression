@@ -4,8 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import com.me.impression.R
 import com.me.impression.base.BaseActivity
+import com.me.impression.common.Constants
 import com.me.impression.entity.GuideBean
+import com.me.impression.extensions.gone
+import com.me.impression.extensions.visible
 import com.me.impression.ui.adapter.GuideAdapter
+import com.me.impression.utils.PreferencesUtils
 import com.me.impression.vm.SplashViewModel
 import com.youth.banner.indicator.CircleIndicator
 import kotlinx.android.synthetic.main.activity_welcome.*
@@ -26,9 +30,23 @@ class WelcomeActivity : BaseActivity<SplashViewModel>() {
     }
 
     override fun initView() {
-        banner.addBannerLifecycleObserver(this)
-            .setAdapter(GuideAdapter(getGuideInfo()))
-            .indicator = CircleIndicator(this)
+        val firstLaunch = PreferencesUtils.getBoolean(this, Constants.PrefKey.FirstLaunch,true)
+        if(firstLaunch){
+            iconLayout.gone()
+            banner.visible()
+            goBtn.visible()
+            banner.addBannerLifecycleObserver(this)
+                .setAdapter(GuideAdapter(getGuideInfo()))
+                .indicator = CircleIndicator(this)
+        }else{
+            banner.gone()
+            goBtn.gone()
+            iconLayout.visible()
+            mViewModel.delayStart(1500) {
+                goMain()
+            }
+        }
+
     }
 
     private fun getGuideInfo():List<GuideBean>
@@ -42,9 +60,14 @@ class WelcomeActivity : BaseActivity<SplashViewModel>() {
 
     override fun setListener() {
         goBtn.setOnClickListener {
-            startActivity(Intent(this,MainActivity::class.java))
-            closePage()
+            PreferencesUtils.putBoolean(this, Constants.PrefKey.FirstLaunch,false)
+            goMain()
         }
     }
 
+    private fun goMain()
+    {
+        startActivity(Intent(this,MainActivity::class.java))
+        closePage()
+    }
 }
